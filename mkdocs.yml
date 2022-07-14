@@ -1,5 +1,5 @@
 # Project information
-site_name: License Manager
+site_name: Netified - License Manager
 site_url: https://license-manager.netified.io
 site_author: Thomas ILLIET
 
@@ -20,7 +20,7 @@ theme:
     - 404.html
 
   features:
-    - navigation.prune
+    - navigation.indexes 
     - navigation.top
     - navigation.instant
     - navigation.tracking
@@ -82,6 +82,8 @@ plugins:
 
 # Extension
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -91,3 +93,7 @@ markdown_extensions:
 # Page tree
 nav:
     - Home: index.md
+    - Self-hosted:
+      - Setup:
+        - Configuration:
+          - Identity: self-hosted/setup/configuration/identity.md
