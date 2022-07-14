@@ -96,4 +96,11 @@ nav:
     - Self-hosted:
       - Setup:
         - Configuration:
+          - Authentication: self-hosted/setup/configuration/authentication.md
+          - Azure Key Vault: self-hosted/setup/configuration/azure-key-vault.md
+          - Database Migration: self-hosted/setup/configuration/database-migration.md
+          - Database Protection: self-hosted/setup/configuration/database-protection.md
+          - Database Provider: self-hosted/setup/configuration/database-provider.md
           - Identity: self-hosted/setup/configuration/identity.md
+          - Swagger: self-hosted/setup/configuration/swagger.md
+          - Testing: self-hosted/setup/configuration/testing.md
