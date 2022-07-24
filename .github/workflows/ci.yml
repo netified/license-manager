@@ -7,11 +7,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: pip install git+https://${GH_TOKEN}@github.com/netified/mkdocs-material.git
-      - run: mkdocs gh-deploy --force
+      - name: Install dependencies
+        run: pip install git+https://${GH_TOKEN}@github.com/netified/mkdocs-material.git
+      - name: Build documentation for docker
+        run: mkdocs build --site-dir site --clean
+      - name: Upload build output
+        uses: actions/upload-artifact@v3
+        with:
+          name: mkdocs-build-output
+          path: ./site
+      - name: Deploy to github pages
+        run: mkdocs gh-deploy --force
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+         registry: ghcr.io
+         username: ${{github.actor}}
+         password: ${{secrets.GITHUB_TOKEN}} 
+      - name: Publish docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/netified/license-manager:latest
+            ghcr.io/netified/license-manager:${{github.run_number}}
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }} 
