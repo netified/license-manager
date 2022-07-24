@@ -1,1 +1,1 @@
-# license-manager-front
+# License Manager

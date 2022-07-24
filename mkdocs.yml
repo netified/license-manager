@@ -40,16 +40,6 @@ theme:
     - scheme: default
       primary: indigo
       accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-
   font:
     text: Roboto
     code: Roboto Mono
@@ -82,6 +72,7 @@ plugins:
 
 # Extension
 markdown_extensions:
+  - footnotes
   - admonition
   - pymdownx.details
   - pymdownx.highlight:
@@ -93,14 +84,23 @@ markdown_extensions:
 # Page tree
 nav:
     - Home: index.md
-    - Self-hosted:
+    - Getting started:
+      - getting-started/index.md
+      - Insiders: getting-started/insiders.md
+    - API:
+      - "api/index.md"
+      - Installation:
+        - Docker: api/installation.md
+        - Linux: api/installation/linux.md
+        - Windows: api/installation/windows.md
       - Setup:
+        - Database Migrations: api/setup/database-migration.md
         - Configuration:
-          - Authentication: self-hosted/setup/configuration/authentication.md
-          - Azure Key Vault: self-hosted/setup/configuration/azure-key-vault.md
-          - Database Migration: self-hosted/setup/configuration/database-migration.md
-          - Database Protection: self-hosted/setup/configuration/database-protection.md
-          - Database Provider: self-hosted/setup/configuration/database-provider.md
-          - Identity: self-hosted/setup/configuration/identity.md
-          - Swagger: self-hosted/setup/configuration/swagger.md
-          - Testing: self-hosted/setup/configuration/testing.md
+          - Authentication: api/setup/configuration/authentication.md
+          - Azure Key Vault: api/setup/configuration/azure-key-vault.md
+          - Database Migration: api/setup/configuration/database-migration.md
+          - Database Protection: api/setup/configuration/database-protection.md
+          - Database Provider: api/setup/configuration/database-provider.md
+          - Identity: api/setup/configuration/identity.md
+          - Swagger: api/setup/configuration/swagger.md
+          - Testing: api/setup/configuration/testing.md
