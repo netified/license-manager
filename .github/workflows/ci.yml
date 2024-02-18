@@ -18,7 +18,7 @@ jobs:
       - name: Build documentation for docker
         run: mkdocs build --site-dir site --clean
       - name: Upload build output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mkdocs-build-output
           path: ./site
